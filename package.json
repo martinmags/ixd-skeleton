@@ -12,10 +12,13 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "express": "3.x",
     "express3-handlebars": "*",
+    "jquery": "^3.3.1",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "popper.js": "^1.14.7"
   },
   "engines": {
     "node": "8.9.x"

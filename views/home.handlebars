@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>SwingGo - Learn from a Virtual Coach</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">  
+  <link rel="stylesheet" href="css/homestyles.css">
+
+</head>
+
+<body>
+  <div class="screen_container">
+    <!-- Profile Button and Logo ------------------->
+    <!-- Include a first-time user message overlay-->
+    <div class="top_container"> 
+      <a class="thumbnailtop" href="profile">
+        <img id="profileicon" src="images/profileIcon.png">
+      </a>
+      <header class="title">SwingGo</header>
+      <div class="invisible_spacer">
+        <h1>.</h1>
+      </div>
+    </div>
+
+    <!-- Camera Component -------------------------->
+    <!-- Include a first-time user message overlay-->
+    <div class="content_container">
+      <Text>Welcome to SwingGo</Text>
+    </div>
+
+    <!-- Button to transition to swing clips -->
+    <!-- for the current session -------------->
+    <div class="bottom_container">
+      <a class="thumbnailbottom">
+        <img id="downarrow" src="images/downarrow.png">
+      </a>     
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB7O_dNhrBSXeEQdEkzFtlB9VA_j0VezRM",
+      authDomain: "swinggo-webapp.firebaseapp.com",
+      databaseURL: "https://swinggo-webapp.firebaseio.com",
+      projectId: "swinggo-webapp",
+      storageBucket: "swinggo-webapp.appspot.com",
+      messagingSenderId: "126480075850"
+    };
+    firebase.initializeApp(config);
+  </script>
+</body>
+</html>

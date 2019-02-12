@@ -8,38 +8,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="js/bootstrap/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
   <link rel="stylesheet" href="css/indexstyles.css">
 </head>
 
 <body>
-  <div class="screen_container">
-    <!-- Profile Button and Logo ------------------->
-    <!-- Include a first-time user message overlay-->
-    <div class="top_container"> 
-      <a class="thumbnailtop" href="profile">
-        <img id="profileicon" src="images/profileIcon.png">
-      </a>
-      <header class="title">SwingGo</header>
-      <div class="invisible_spacer">
-        <h1>.</h1>
+  <div class="modal-dialog text-center">
+    <div class="col-sm-8 main-section">
+      <div class="modal-content" id="appuse">
+        <h2>SwingGo (Placeholder)</h2>
+        <h5>This will be a carousel for app information</h5>
+        <h5>Name (slide indicator), app use#1, app use#2</h5>
+      </div>
+      <div class="modal-content">
+        <div class="col-12 user-img">
+          <img src="images/face.jpg">
+        </div>
+        
+        <form class="col-12" action="createacc">
+          <div class="form-group" id="email">
+            <input type="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group password" id="pw">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="submit" class="btn">
+            <i class="fas fa-sign-in-alt"></i>
+            Login
+          </button>            
+          <div class=col-12 forgot" id=forgot>
+            <a href="#">Forgot Password?</a>
+          </div>
+        </form>
       </div>
     </div>
-
-    <!-- Camera Component -------------------------->
-    <!-- Include a first-time user message overlay-->
-    <div class="content_container">
-      <Text>Welcome to SwingGo</Text>
-    </div>
-
-    <!-- Button to transition to swing clips -->
-    <!-- for the current session -------------->
-    <div class="bottom_container">
-      <a class="thumbnailbottom">
-        <img id="downarrow" src="images/downarrow.png">
-      </a>     
-    </div>
   </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB7O_dNhrBSXeEQdEkzFtlB9VA_j0VezRM",
+      authDomain: "swinggo-webapp.firebaseapp.com",
+      databaseURL: "https://swinggo-webapp.firebaseio.com",
+      projectId: "swinggo-webapp",
+      storageBucket: "swinggo-webapp.appspot.com",
+      messagingSenderId: "126480075850"
+    };
+    firebase.initializeApp(config);
+  </script>
 </body>
 </html>

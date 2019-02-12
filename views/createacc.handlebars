@@ -16,12 +16,32 @@
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
   <link rel="stylesheet" href="css/createaccstyles.css">
-
 </head>
 
 <body>
-  <div class="screen_container">
-    <Text>hi</Text>
+  <div class="modal-dialog text-center">
+    <div class="col-sm-8 main-section">
+      <div class="modal-content" id="createacctitle">
+        <h1>Create an Account</h1>
+      </div>
+      <div class="modal-content">
+        <form class="col-12" action="home">
+          <div class="form-group" id="uname">
+            <input type="text" class="form-control" placeholder="Enter your Name">
+          </div>          
+          <div class="form-group" id="email">
+            <input type="email" class="form-control" placeholder="Enter your Email">
+          </div>
+          <div class="form-group" id="pw">
+            <input type="password" class="form-control" placeholder="Enter a Password">
+          </div>
+          <!-- TODO: Dominant Hand button to toggle between right or left --> 
+          <button type="submit" class="btn">
+            Submit
+          </button>             
+        </form>
+      </div>
+    </div>
   </div>
 
   <!-- Firebase -->

@@ -7,14 +7,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="js/bootstrap/bootstrap.min.js"></script>
+      <!-- Load TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3"></script>
+    <!-- Load Posenet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@0.2.3"></script>
+    <!-- Load jerryrigging -->
+    <script src="js/camera/camera.js"></script>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
   <link rel="stylesheet" href="css/homestyles.css">
 
 </head>
 
-<body>
+<body onload='startVideo();'>
   <div class="screen_container">
     <!-- Profile Button and Logo ------------------->
     <!-- Include a first-time user message overlay-->
@@ -31,6 +36,8 @@
     <!-- Camera Component -------------------------->
     <!-- Include a first-time user message overlay-->
     <div class="content_container">
+      <video id="camera" style="width:500px;height:500px;display:none;" autoplay></video>
+      <canvas id="canvas" style="width:500px;height:500px"> </canvas>
       <Text>Welcome to SwingGo</Text>
     </div>
 

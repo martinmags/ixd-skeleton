@@ -1,0 +1,19 @@
+From Backend Team
+
+API
+-------
+Get all Orders
+GET request to /api/orders
+Sample Response:
+[
+  {
+    id: 1,
+    name: 'James',
+    drink: 'Coffee'
+  },
+  {
+    id: 2,
+    name: 'John',
+    drink: 'Latte'
+  },
+]

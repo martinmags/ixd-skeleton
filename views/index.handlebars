@@ -1,19 +1,22 @@
 <!doctype html>
-
 <html>
 
 <head>
   <title>SwingGo - Learn from a Virtual Coach</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap -->
   <script src="js/bootstrap/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <!-- FB Login API -->
   {{> facebook}}
   <script src="/js/facebook.js"></script>
+  <!-- <script src="/js/index.js"></script> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
@@ -29,18 +32,18 @@
         <h5>Name (slide indicator), app use#1, app use#2</h5>
       </div>
       <div class="modal-content">
-        <form class="col-12" action="Home">
+        <form class="col-12" action="home">
           <div class="form-group" id="email">
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email">
           </div>
           <div class="form-group password" id="pw">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="password">
           </div>
           <button type="submit" class="btn">
             <i class="fas fa-sign-in-alt"></i>
             Login
           </button>
-          <p id="fb">
+          <p class="fblogin">
             Please login through Facebook
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>            

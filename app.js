@@ -12,13 +12,14 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var createacc = require('./routes/createacc');
 var profile = require('./routes/profile');
+var add = require('./routes/add');
 // Example route
 // var user = require('./routes/user');
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 8000);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', handlebars());
 app.set('view engine', 'handlebars');
@@ -39,10 +40,16 @@ if ('development' == app.get('env')) {
 
 // get requests data 
 // put and post sends data
+// Pages
 app.get('/', index.view);
 app.get('/home', home.view);
 app.get('/createacc', createacc.view);
 app.get('/profile', profile.view);
+
+// Functions
+app.get('/add', add.addUser)
+
+
 // Example route
 // app.get('/users', user.list);
 

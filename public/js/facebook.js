@@ -23,5 +23,5 @@ function statusChangeCallback(response) {
 
 function changeUser(response){
   console.log(response);
-  document.getElementById('fb').style.display = 'none';
+  $('p.fblogin').hide();
 }

@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+     "name": "user0",
+     "email": "test@ucsd.edu",
+     "pw:": "test1234",
+     "dominanthand": "50",
+     "handicap": "50",
+     "swing_journal":[
+        {
+          "currentSession": {
+            "date": "2/13/19",
+            "swings": [
+              {
+              "id": "1",
+              "bodypoints": "30",
+              "handicap": "20"
+              }
+            ],
+            "totalbodypoints": "30",
+            "avg_handicap": "18"
+          },
+          "currentBest": {
+            "date": "2/14/19",
+            "swings": [
+              {
+                "id": "1",
+                "bodypoints": "30",
+                "handicap": "20"
+              }
+            ],
+            "totalbodypoints": "30",
+            "avg_handicap": "18"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,20 +1,4 @@
-
-/*
- * GET home page.
- */
-
-// exports.view = function(req, res){
-//   res.render('index', 
-//   {
-//     'image': 'profileIcon.png',
-//     'id': 'profileicon'
-//   },{},
-//   {
-//     'image': 'downarrow.jpeg',
-//     'id': 'downarrow'
-//   });
-// };
-
+var data = require('../data.json');
 exports.view = function(req,res){
-  res.render('index');
+  res.render('index', data);
 };

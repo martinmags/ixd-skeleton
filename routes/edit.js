@@ -1,10 +1,10 @@
 var data = require("../data.json");
 
-exports.addUser = function(req,res){
+exports.editUser = function(req,res){
   var name = req.query.name;
   var email = req.query.email;
   var password = req.query.password;
-  var dominanthand = "";
+  var dominanthand = req.query.dominanthand;
   var handicap = "";
   var swing_journal = [
   ];
@@ -18,7 +18,7 @@ exports.addUser = function(req,res){
     "handicap": handicap,
   };
 
-  data.users.push(newUser);
+  data.user = newUser;
   res.render('home');
   console.log(data);
 };

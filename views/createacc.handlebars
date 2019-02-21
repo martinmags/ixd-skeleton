@@ -24,23 +24,35 @@
       <div class="modal-content" id="createacctitle">
         <h1>Create an Account</h1>
       </div>
+
       <div class="modal-content">
-        <form class="col-12" action="home">
+        <form class="col-12" role="form" method="get" action="/add">
           <div class="form-group" id="uname">
-            <input type="text" class="form-control" placeholder="Enter your Name">
+            <input type="text" class="form-control" placeholder="Enter your Name" name="email">
           </div>          
           <div class="form-group" id="email">
-            <input type="email" class="form-control" placeholder="Enter your Email">
+            <input type="email" class="form-control" placeholder="Enter your Email" name="email">
           </div>
           <div class="form-group" id="pw">
-            <input type="password" class="form-control" placeholder="Enter a Password">
+            <input type="password" class="form-control" placeholder="Enter a Password" name="password">
           </div>
           <!-- TODO: Dominant Hand button to toggle between right or left --> 
-          <button type="submit" class="btn">
-            Submit
-          </button>             
+          <input type="submit" class="btn" value="Submit"></input>
         </form>
       </div>
+
+      <!-- friends is an array declared in data.json name is an attribute -->
+      {{#each users}}
+      <div class="users" id="{{name}}">
+        <h6>{{name}}test</h6>
+        <h6>{{email}}</h6>
+        <h6>{{password}}</h6>
+        <h6>{{dominanthand}}</h6>
+        <h6>{{handicap}}</h6>
+        <hr>
+      </div>
+      {{/each}}  
+
     </div>
   </div>
 

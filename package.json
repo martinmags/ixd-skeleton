@@ -16,6 +16,7 @@
     "express": "3.x",
     "express3-handlebars": "*",
     "jquery": "^3.3.1",
+    "merge-descriptors": "^1.0.1",
     "mongodb": "*",
     "mongoose": "*",
     "popper.js": "^1.14.7"

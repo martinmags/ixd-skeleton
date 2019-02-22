@@ -14,6 +14,7 @@ var createacc = require('./routes/createacc');
 var profile = require('./routes/profile');
 var help = require('./routes/help');
 var edit = require('./routes/edit');
+// TODO: var accountsettings = require()
 // Example route
 // var user = require('./routes/user');
 
@@ -49,6 +50,7 @@ app.get('/help', help.view);
 
 // Functions
 app.get('/edit', edit.editUser);
+
 // Example route
 // app.get('/users', user.list);
 

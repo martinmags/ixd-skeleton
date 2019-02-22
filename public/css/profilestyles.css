@@ -38,11 +38,24 @@
   font-size:2em;
 }
 
-.invisible_spacer{
-  width: 50px;
-  height: 50px;
+.editBtn{
   align-self: center;
-  visibility: hidden;
+  justify-content: center;
+  margin: 0px;
+}
+
+#edit{
+  align-self: center;
+  justify-content: center;
+  background-color: #7F7171;
+  border: 5px solid #555555;
+  border-radius: 12px;
+  color: white;
+}
+
+.user{
+  font-size:1.2em;
+  font-family: "Fanwood Text" ;
 }
 /* Flexbox sub-wrapper for entire bottom portion of screen */
 .content_container{

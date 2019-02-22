@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
   <link rel="stylesheet" href="css/profilestyles.css">
+  <!-- Font type -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
 </head>
 
 <body>
@@ -22,23 +24,33 @@
         <img id="backarrow" src="images/backarrow.png">
       </a>
       <header class="title">Profile</header>
-      <div class="invisible_spacer">
-        <h1>.</h1>
-      </div>
+      <form class="editBtn" method="get" action="profile">
+        <button id="edit" type="submit">Edit</button> 
+      </form> 
+
     </div>
 
     <!-- Camera Component -------------------------->
     <!-- Include a first-time user message overlay-->
     <div class="content_container">
       <div class="welcome">
-        <Text>Welcome back, Scott!</Text>
         <div class="user">
-          <!-- NOT SHOWING CURRENTLY -->
-          <h6>Name: {{this.name}}</h6>
-          <h6>Email: {{email}}</h6>
-          <h6>PW: {{password}}</h6>
-          <h6>Dominant Hand: {{dominanthand}}</h6>
-          <h6>Handicap: {{handicap}}</h6>
+          <!-- FB Login doesn't correctly parse information -->
+          <Text>Name:</Text>
+          <Text>{{user.name}}</Text><br><br>
+          <Text>Email:</Text>
+          <Text>{{user.email}}</Text><br><br>
+          <Text>PW:</Text>
+          <Text>hidden</Text><br><br>
+          <Text>Dominant Hand:</Text>
+          <Text>{{user.dominanthand}}</Text><br><br>
+          {{#if user.handicap}}
+            <Text>Average Handicap:</Text><br>
+            <Text>{{user.handicap}}</Text><br><br>
+          {{else}}
+            <Text>Average Handicap:</Text><br>
+            <Text>Not Available</Text><br><br>
+          {{/if}}
         </div>        
       </div>
       <div class="info">

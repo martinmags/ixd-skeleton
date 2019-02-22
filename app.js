@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var createacc = require('./routes/createacc');
 var profile = require('./routes/profile');
+var help = require('./routes/help');
 var edit = require('./routes/edit');
 // Example route
 // var user = require('./routes/user');
@@ -44,6 +45,7 @@ app.get('/', index.view);
 app.get('/home', home.view);
 app.get('/createacc', createacc.view);
 app.get('/profile', profile.view);
+app.get('/help', help.view);
 
 // Functions
 app.get('/edit', edit.editUser);

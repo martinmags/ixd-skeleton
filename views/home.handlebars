@@ -20,33 +20,24 @@
 
 <body onload='startVideo();'>
   <div class="screen_container">
-    <!-- Profile Button and Logo ------------------->
+    <!-- Profile Button; Logo; Help ------------------->
     <!-- Include a first-time user message overlay-->
     <div class="top_container"> 
-      <a class="thumbnailtop" href="profile">
+      <a class="profileBtn" href="profile">
         <img id="profileicon" src="images/profileIcon.png">
       </a>
       <header class="title">SwingGo</header>
-      <div class="invisible_spacer">
-        <h1>.</h1>
-      </div>
+      <a class="helpBtn" href="help">
+        <img id="profileicon" src="images/helpIcon.png">
+      </a>
     </div>
 
     <!-- Camera Component -------------------------->
     <!-- Include a first-time user message overlay-->
     <div class="content_container">
-      <video id="camera" style="width:500px;height:500px;display:none;" autoplay></video>
-      <canvas id="canvas" style="width:500px;height:500px"> </canvas>
+      <video id="camera" autoplay></video>
+      <canvas id="canvas"></canvas>
     </div>
-
-    <!-- Button to transition to swing clips -->
-    <!-- for the current session -------------->
-    <div class="bottom_container">
-      <a class="thumbnailbottom">
-        <img id="downarrow" src="images/downarrow.png">
-      </a>     
-    </div>
-  </div>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>

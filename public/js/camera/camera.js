@@ -19,7 +19,8 @@ function startVideo() {
     }
 
     renderFrame();
-    window.setInterval(renderFrame, 1000);
+    window.setInterval(renderFrame, 10);
+    didAddressBall()
 }
 
 function renderFrame() {
@@ -32,7 +33,7 @@ function renderFrame() {
     network.then(function(net){
       return net.estimateSinglePose(canvas, imageScaleFactor, flipHorizontal, outputStride)
     }).then(function(pose){
-      console.log(pose);
+      // console.log(pose);
       drawSkeleton(pose, .1);
     }).catch(console.log);
 }
@@ -50,7 +51,7 @@ function eitherPointDoesntMeetConfidence( a, b, minConfidence) {
 function getAdjacentKeyPoints(keypoints, minConfidence) {
   return connectedPartIndices.reduce(
       (result, [leftJoint, rightJoint]) => {
-        console.log(keypoints, leftJoint, rightJoint);
+        // console.log(keypoints, leftJoint, rightJoint);
         if (eitherPointDoesntMeetConfidence(
                 keypoints[leftJoint].score, keypoints[rightJoint].score, minConfidence)) {
           return result;
@@ -83,12 +84,58 @@ function drawSegment([ay, ax], [by, bx], color, scale, ctx) {
 }
 
 function drawSkeleton(keypoints, minConfidence, scale = 1) {
+  var wristDistance = (((keypoints.keypoints[9]["position"].x - keypoints.keypoints[10]["position"].x + keypoints.keypoints[9]["position"].y - keypoints.keypoints[10]["position"].y)/2));
+  var wrists = ((keypoints.keypoints[9]["position"].y + keypoints.keypoints[10]["position"].y)/2);
+  var didAddressBall = false;
+  var topOfBackswing = false;
+  var impactPosition = false;
+  var finishSwing = false;
+
+
+  // console.log(wristDistance);
   const adjacentKeyPoints =
       getAdjacentKeyPoints(keypoints.keypoints, minConfidence);
+  // Check that the keypoints confidence levels are high enough
+  if (keypoints.keypoints[9]["score"] > .8 && 
+      keypoints.keypoints[10]["score"] > .8 &&
+      wristDistance < 30)  {
+      console.log("Golfer has addressed ball");
+      didAddressBall = true;
+    }
+    if (wrists < 200 && didAddressBall == true) {
+      console.log("Golfer reached top of backswing");
+      topOfBackswing = true;
+    }
+    if (wrists > 300 && topOfBackswing == true) {
+      console.log("Golfer in impact position");
+      impactPosition = true;
+    } 
+    if (wrists < 200 && impactPosition == true) {
+      console.log("Golfer has finished golf swing");
+    }
+      var firstAngle = Math.atan2((keypoints.keypoints[5]["position"].y - keypoints.keypoints[11]["position"].y),(keypoints.keypoints[5]["position"].x - keypoints.keypoints[11]["position"].x));
+      var secondAngle = Math.atan2((keypoints.keypoints[6]["position"].y - keypoints.keypoints[11]["position"].y),(keypoints.keypoints[6]["position"].x - keypoints.keypoints[11]["position"].x));
+      var angle = (firstAngle - secondAngle);
+      console.log(angle)
 
+      didAddressBall = false;
+      topOfBackswing = false;
+      impactPosition = false;
+    // }
+
+      // keypoints.keypoints[8]["position"].x && keypoints.keypoints[9]["position"].x
+      // console.log(keypoints.keypoints[9]["position"].y);
   adjacentKeyPoints.forEach((keypoints) => {
     drawSegment(
         toTuple(keypoints[0].position), toTuple(keypoints[1].position), "#00FF00",
         scale, ctx);
   });
+}
+
+function didAddressBall(keypoints) {
+  // console.log(connectedPartIndices[leftWrist]);
+  // console.log(keypoints.position);
+  // console.log(keypoints, leftJoint, rightJoint);
+
+
 }

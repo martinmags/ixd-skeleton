@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>SwingGo - Learn from a Virtual Coach</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQUERY -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Styling -->  
+  <link rel="stylesheet" href="css/welcomestyles.css">
+  <!-- Responsive Voice API -->
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+</head>
+
+<body>
+  <div class="modal-dialog text-center">
+    <div class="col-sm-8 main-section">
+      <div class="modal-content" id="appuse">
+        <h2>Welcome {{name}}!</h2>
+      </div>
+      <div class="modal-content">
+        <h3>I'm Coach Ace. I'll be your Virtual Coach.
+        <h6>I have years of golf experience, but none with you.</h3>
+        <h6>Let's do a few golf sessions, so I can understand you a bit more.</h3>
+        <script type="text/javascript">
+          responsiveVoice.speak("I'm Coach Ace. Let's do a few golf sessions, so I can understand you a bit more.");
+        </script>  
+      </div>
+      <form class="btn" method="get" action="home">
+        <button type="submit">Continue</button> 
+      </form>     
+    </div>
+  </div>

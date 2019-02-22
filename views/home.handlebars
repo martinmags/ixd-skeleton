@@ -7,15 +7,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery.js"></script>
-      <!-- Load TensorFlow.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3"></script>
-    <!-- Load Posenet -->
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@0.2.3"></script>
-    <!-- Load jerryrigging -->
-    <script src="js/camera/camera.js"></script>
+  <!-- Load TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3"></script>
+  <!-- Load Posenet -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@0.2.3"></script>
+  <!-- Load jerryrigging -->
+  <script src="js/camera/camera.js"></script>
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Styling -->
   <link rel="stylesheet" href="css/homestyles.css">
+  <!-- Responsive Voice API -->
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 
 <body onload='startVideo();'>
@@ -26,7 +30,7 @@
       <a class="profileBtn" href="profile">
         <img id="profileicon" src="images/profileIcon.png">
       </a>
-      <header class="title">SwingGo</header>
+      <header class="title">{{user.name}}</header>
       <a class="helpBtn" href="help">
         <img id="profileicon" src="images/helpIcon.png">
       </a>
@@ -37,6 +41,9 @@
     <div class="content_container">
       <video id="camera" autoplay></video>
       <canvas id="canvas"></canvas>
+      <script type="text/javascript">
+        responsiveVoice.speak("hello {{user.name}}");
+      </script>      
     </div>
 
   <!-- Firebase -->

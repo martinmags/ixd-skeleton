@@ -19,7 +19,7 @@ exports.editUser = function(req,res){
   };
 
   data.user = newUser;
-  res.render('home', newUser); // pass newUser to home
+  res.render('welcome', newUser); // pass newUser to home
   console.log(data);
 };
 

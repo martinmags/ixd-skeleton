@@ -20,7 +20,7 @@ function startVideo() {
 
     renderFrame();
     window.setInterval(renderFrame, 10);
-    didAddressBall()
+    
 
 }
 
@@ -92,19 +92,16 @@ function drawSkeleton(keypoints, minConfidence, scale = 1) {
         toTuple(keypoints[0].position), toTuple(keypoints[1].position), "#00FF00",
         scale, ctx);
   });
+  didAddressBall(keypoints);
 }
 
 function didAddressBall(keypoints) {
-    var wristDistance = (((keypoints.keypoints[9]["position"].x - keypoints.keypoints[10]["position"].x + keypoints.keypoints[9]["position"].y - keypoints.keypoints[10]["position"].y)/2));
+  var wristDistance = (((keypoints.keypoints[9]["position"].x - keypoints.keypoints[10]["position"].x + keypoints.keypoints[9]["position"].y - keypoints.keypoints[10]["position"].y)/2));
   var wrists = ((keypoints.keypoints[9]["position"].y + keypoints.keypoints[10]["position"].y)/2);
   var didAddressBall = false;
   var topOfBackswing = false;
   var impactPosition = false;
   var finishSwing = false;
-
-  // console.log(wristDistance);
-  const adjacentKeyPoints =
-      getAdjacentKeyPoints(keypoints.keypoints, minConfidence);
   // Check that the keypoints confidence levels are high enough
   if (keypoints.keypoints[9]["score"] > .8 && 
       keypoints.keypoints[10]["score"] > .8 &&
@@ -133,11 +130,11 @@ function didAddressBall(keypoints) {
       // impactPosition = false;
     }
     if (topOfBackswing == true) {
-                responsiveVoice.speak("Your form looks good, just remember your front arm and back arm should be as straight as possible at impact, with your front arm perfectly in line with your club shaft. Your back shoulder should be dropped a bit below the height of your front shoulder. This will allow your hands to remain ahead of your club head, and your back foot to lift off the ground.");
+                responsiveVoice.speak("Your form looks good, just remember your front arm and back arm should be as straight as possible at impact with your front arm perfectly in line with your club shaft Your back shoulder should be dropped a bit below the height of your front shoulder This will allow your hands to remain ahead of your club head and your back foot to lift off the ground.");
     }
       // keypoints.keypoints[8]["position"].x && keypoints.keypoints[9]["position"].x
       // console.log(keypoints.keypoints[9]["position"].y);
-    responsiveVoice.speak("Your form looks good, just remember your front arm and back arm should be as straight as possible at impact, with your front arm perfectly in line with your club shaft. Your back shoulder should be dropped a bit below the height of your front shoulder. This will allow your hands to remain ahead of your club head, and your back foot to lift off the ground.");
+    // responsiveVoice.speak("Your form looks good, just remember your front arm and back arm should be as straight as possible at impact, with your front arm perfectly in line with your club shaft. Your back shoulder should be dropped a bit below the height of your front shoulder. This will allow your hands to remain ahead of your club head, and your back foot to lift off the ground.");
 
 
 }

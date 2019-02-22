@@ -1,10 +1,10 @@
 {
   "user": 
     {
-     "name": "",
-     "email": "",
-     "pw:": "",
-     "dominanthand": "",
+     "name": "user0",
+     "email": "test@ucsd.edu",
+     "pw:": "1234",
+     "dominanthand": "right",
      "handicap": "",
      "swing_journal":[
         {

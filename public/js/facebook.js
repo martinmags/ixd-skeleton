@@ -15,6 +15,7 @@ function statusChangeCallback(response) {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
         FB.api('/me?fields=name,first_name,picture.width(150)', changeUser);
+
   }
   else {
     console.log('Not authenticated');
@@ -23,12 +24,7 @@ function statusChangeCallback(response) {
 
 function changeUser(response){
   console.log(response);
-  $('p.fblogin').hide();
+  $('p.fb.login').hide();
   $('#photo').attr("src", response.picture.data.url);
   $('#name').text(response.name);
-}
-
-function logOut(response){
-  FB.logoout();
-  $('p.fblogin').show();
 }

@@ -7,12 +7,12 @@
       version    : 'v3.2'
     });
 
-    FB.AppEvents.logPageView();
-      
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });       
+    //FB.AppEvents.logPageView();
+    FB.Event.subscribe('auth.login', function(){
+      window.location = '/home';
+    });
   };
+  
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}

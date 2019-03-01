@@ -14,6 +14,7 @@ var createacc = require('./routes/createacc');
 var welcome = require('./routes/welcome');
 var updated = require('./routes/updatedProfile');
 var profile = require('./routes/profile');
+var profileAlt = require('./routes/profile');
 var editprofile = require('./routes/editprofile');
 var edit = require('./routes/edit');
 var help = require('./routes/help');
@@ -53,6 +54,8 @@ app.get('/welcome', welcome.view);
 app.get('/updatedProfile', updated.view);
 
 app.get('/profile', profile.view);
+app.get('/viewAlt', profile.viewAlt);
+
 app.get('/help', help.view);
 app.get('/editprofile', editprofile.view);
 

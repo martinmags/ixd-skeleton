@@ -4,3 +4,8 @@ exports.view = function(req, res){
   res.render('profile', data);
   console.log(data);
 };
+
+exports.viewAlt = function(req, res){
+  res.render('profile', data);
+  console.log(data);
+};

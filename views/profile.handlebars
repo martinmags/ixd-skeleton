@@ -21,6 +21,49 @@
   <div class="screen_container">
     <!-- Profile Button and Logo ------------------->
     <!-- Include a first-time user message overlay-->
+    {{#if viewAlt}}
+    <div class="top_container"> 
+      <a class="thumbnailtop" href="home">
+        <img id="backarrow" src="images/backarrow.png">
+      </a>
+      <header class="title">
+        <text>Profile</text>
+      </header>
+      <div class="logoutbtn">
+        <a href="/"  id="logout" type="button" onclick="FB.logout(function(response){});">LogOut</a>
+      </div>
+
+    </div>
+
+    <div class="content_container">
+      <div class="welcome">
+        <div class="user">
+          <!-- FB Login doesn't correctly parse information -->
+          <div id="facebookPhoto" class="photo">
+            <img id="photo" class='img-responsive' src="images/profileIcon.png"><br>
+          </div>
+          <text>Name:</text>
+          <text id="name">{{user.name}}</text><br>
+          <text>Email:</text>
+          <text>{{user.email}}</text><br>
+          <text>Password:</text>
+          <text>******</text><br>
+          <text>Dominant Hand:</text>
+          <text>{{user.dominanthand}}</text><br>
+          {{#if user.handicap}}
+            <text>Average Handicap:</text>
+            <text>{{user.handicap}}</text>
+          {{else}}
+            <text>Average Handicap:</text>
+            <text>Not Available</text>
+          {{/if}}
+        </div>        
+      </div>
+      <form class="editBtn" method="get" action="editprofile">
+          <button id="edit" type="submit">Edit</button> 
+      </form> 
+    </div>    
+    {{else}}
     <div class="top_container"> 
       <a class="thumbnailtop" href="home">
         <img id="backarrow" src="images/backarrow.png">
@@ -34,8 +77,6 @@
 
     </div>
 
-    <!-- Camera Component -------------------------->
-    <!-- Include a first-time user message overlay-->
     <div class="content_container">
       <div class="welcome">
         <div class="user">
@@ -64,8 +105,6 @@
       </div>
     </div>
 
-    <!-- Button to transition to swing clips -->
-    <!-- for the current session -------------->
     <div class="bottom_container">
       <div class="bottom_buttons"> 
         <a href="/" id="review" type="button" onclick="FB.logout(function(response){});">Log Out</a> 
@@ -73,8 +112,9 @@
           <button id="review" type="submit">Deactivate Account</button> 
         </form>      
       </div>
-
     </div>
+  {{/if}}
+
   </div>
 </body>
 </html>

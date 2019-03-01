@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 10vh;
-  background-color: #7F7171;
+  background-color: #90A686;
   padding: 30px;
 }
 
@@ -21,7 +21,6 @@
   display: flex;
   justify-content: center;
   height: 90vh;
-
 }
 
 #canvas{
@@ -40,7 +39,6 @@
   width: 40px;
   margin: -20px;
   border: none;
-  background-color: #7F7171;
   align-self: center;
 }
 
@@ -49,7 +47,6 @@
   width: 40px;
   margin: -20px;
   border: none;
-  background-color: #7F7171;
   align-self: center;
 }
 

@@ -12,7 +12,10 @@ var index = require('./routes/index');
 var home = require('./routes/home');
 var createacc = require('./routes/createacc');
 var welcome = require('./routes/welcome');
+var updated = require('./routes/updatedProfile');
 var profile = require('./routes/profile');
+var editprofile = require('./routes/editprofile');
+var edit = require('./routes/edit');
 var help = require('./routes/help');
 var user = require('./routes/user');
 // TODO: var accountsettings = require()
@@ -47,11 +50,16 @@ app.get('/', index.view);
 app.get('/home', home.view);
 app.get('/createacc', createacc.view);
 app.get('/welcome', welcome.view);
+app.get('/updatedProfile', updated.view);
+
 app.get('/profile', profile.view);
 app.get('/help', help.view);
+app.get('/editprofile', editprofile.view);
 
 // Functions
 app.get('/user', user.editUser);
+app.get('/edit', edit.editUser);
+
 
 // Example route
 // app.get('/users', user.list);

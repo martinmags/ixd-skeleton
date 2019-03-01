@@ -30,7 +30,9 @@
       <a class="profileBtn" href="profile">
         <img id="profileicon" src="images/profileIcon.png">
       </a>
-      <header class="title">{{user.name}}</header>
+      <header class="title">
+        <img id="logo" src="/images/logo.png"/>
+      </header>
       <a class="helpBtn" href="help">
         <img id="profileicon" src="images/helpIcon.png">
       </a>
@@ -41,24 +43,6 @@
     <div class="content_container">
       <video id="camera" autoplay></video>
       <canvas id="canvas"></canvas>
-      <script type="text/javascript">
-        responsiveVoice.speak("hello {{user.name}}");
-      </script>      
     </div>
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyB7O_dNhrBSXeEQdEkzFtlB9VA_j0VezRM",
-      authDomain: "swinggo-webapp.firebaseapp.com",
-      databaseURL: "https://swinggo-webapp.firebaseio.com",
-      projectId: "swinggo-webapp",
-      storageBucket: "swinggo-webapp.appspot.com",
-      messagingSenderId: "126480075850"
-    };
-    firebase.initializeApp(config);
-  </script>
 </body>
 </html>

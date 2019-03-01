@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/profilestyles.css">
   <!-- Font type -->
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
+  {{> facebook}}
+  <script src="/js/facebook.js"></script>
 </head>
 
 <body>
@@ -23,8 +25,10 @@
       <a class="thumbnailtop" href="home">
         <img id="backarrow" src="images/backarrow.png">
       </a>
-      <header class="title">Profile</header>
-      <form class="editBtn" method="get" action="profile">
+      <header class="title">
+        <text>Profile</text>
+      </header>
+      <form class="editBtn" method="get" action="editprofile">
         <button id="edit" type="submit">Edit</button> 
       </form> 
 
@@ -36,20 +40,23 @@
       <div class="welcome">
         <div class="user">
           <!-- FB Login doesn't correctly parse information -->
-          <Text>Name:</Text>
-          <Text>{{user.name}}</Text><br><br>
-          <Text>Email:</Text>
-          <Text>{{user.email}}</Text><br><br>
-          <Text>PW:</Text>
-          <Text>hidden</Text><br><br>
-          <Text>Dominant Hand:</Text>
-          <Text>{{user.dominanthand}}</Text><br><br>
+          <div id="facebookPhoto" class="photo">
+            <img id="photo" class='img-responsive' src="images/profileIcon.png"><br>
+          </div>
+          <text>Name:</text>
+          <text id="name">{{user.name}}</text><br>
+          <text>Email:</text>
+          <text>{{user.email}}</text><br>
+          <text>Password:</text>
+          <text>******</text><br>
+          <text>Dominant Hand:</text>
+          <text>{{user.dominanthand}}</text><br>
           {{#if user.handicap}}
-            <Text>Average Handicap:</Text><br>
-            <Text>{{user.handicap}}</Text><br><br>
+            <text>Average Handicap:</text>
+            <text>{{user.handicap}}</text>
           {{else}}
-            <Text>Average Handicap:</Text><br>
-            <Text>Not Available</Text><br><br>
+            <text>Average Handicap:</text>
+            <text>Not Available</text>
           {{/if}}
         </div>        
       </div>
@@ -61,9 +68,7 @@
     <!-- for the current session -------------->
     <div class="bottom_container">
       <div class="bottom_buttons"> 
-        <form method="get" action="/">
-          <button id="review" type="submit">Sign Out</button> 
-        </form>
+        <a href="/" id="review" type="button" onclick="FB.logout();">SignOut</a> 
         <form method="get" action="/">
           <button id="review" type="submit">Deactivate Account</button> 
         </form>      

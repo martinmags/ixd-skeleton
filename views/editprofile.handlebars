@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+
+<head>
+  <title>SwingGo - Learn from a Virtual Coach</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/bootstrap/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">  
+  <link rel="stylesheet" href="css/editprofilestyles.css">
+  <!-- Font type -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
+</head>
+
+<body>
+  <div class="screen_container">
+    <!-- Profile Button and Logo ------------------->
+    <!-- Include a first-time user message overlay-->
+    <div class="top_container"> 
+      <a class="thumbnailtop" href="home">
+        <img id="backarrow" src="images/backarrow.png">
+      </a>
+      <header class="title">
+        <text>Profile</text>
+      </header>
+      <form class="editBtn" method="get" action="profile">
+        <button id="edit" type="submit">Edit</button> 
+      </form> 
+
+    </div>
+
+    <!-- Camera Component -------------------------->
+    <!-- Include a first-time user message overlay-->
+    <div class="content_container">
+      <div class="welcome">
+        <div class="user">
+          <img id="photo" class='img-responsive' src="images/profileIcon.png"><br>
+          <text>Upload a Picture</text><br><br>
+          <form class="col-12" role="form" method="get" action="/edit">
+            <div class="form-group" id="uname">
+              <input type="text" class="form-control" placeholder="Enter your Name" name="name">
+            </div>          
+            <div class="form-group" id="email">
+              <input type="email" class="form-control" placeholder="Enter your Email" name="email">
+            </div>
+            <div class="form-group" id="pw">
+              <input type="password" class="form-control" placeholder="Enter a Password" name="password">
+            </div>
+            <div class="form-group" id="dh">
+              Dominant Hand<input type="text" class="form-control" placeholder="Left or Right" name="dominanthand">
+            </div>
+
+            <!-- TODO: Dominant Hand button to toggle between right or left --> 
+            <input type="submit" class="btn" value="Submit"></input>
+          </form>
+          
+        </div>        
+      </div>
+      <div class="info">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

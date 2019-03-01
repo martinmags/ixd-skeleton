@@ -1,0 +1,105 @@
+body{
+  color: #4F5B6B;
+}
+/*************************************/
+/* Flexbox wrapper for entire screen */
+.screen_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Flexbox sub-wrapper for entire top portion of screen */
+.top_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: #90A686;
+  padding: 30px;
+}
+
+.thumbnailtop {
+  height: 50px;
+  width: 50px;
+  margin: 0px;
+  border: none;
+  background-color: #90A686;
+  align-self: center;
+}
+
+#backarrow{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.title{
+  font-weight: bolder;
+  color: white;
+  align-self: center;
+  font-size:2em;
+}
+
+.editBtn{
+  align-self: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+#edit{
+  align-self: center;
+  justify-content: center;
+  background-color: #7F7171;
+  border: 5px solid #555555;
+  border-radius: 12px;
+  color: white;
+}
+
+.user{
+  font-size:1.2em;
+  font-family: "Fanwood Text" ;
+}
+/* Flexbox sub-wrapper for entire bottom portion of screen */
+.content_container{
+  display: flex;
+  flex-direction: column;
+  background-color: #DDD9C5;
+  height: 90vh;
+}
+
+.welcome{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* Flexbox sub-wrapper for entire bottom portion of screen */
+.bottom_container{
+  height: 10vh;
+  background-color: #90A686;
+}
+
+.bottom_buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5%;
+}
+#review{
+  margin: 0px;
+  align-self: center;
+  justify-content: center;
+  background-color: #7F7171;
+  border: 5px solid #555555;
+  border-radius: 12px;
+  color: white;
+  max-width: 100%;
+  max-height: 100%;
+}
+

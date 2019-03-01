@@ -43,35 +43,9 @@
           <!-- TODO: Dominant Hand button to toggle between right or left --> 
           <input type="submit" class="btn" value="Submit"></input>
         </form>
-      </div>
-
-      <!-- friends is an array declared in data.json name is an attribute -->
-
-      <div class="users" id="{{name}}">
-        <h6>{{name}}</h6>
-        <h6>{{email}}</h6>
-        <h6>{{password}}</h6>
-        <h6>{{dominanthand}}</h6>
-        <h6>{{handicap}}</h6>
-        <hr>
-      </div>
+      </div> 
 
     </div>
   </div>
-
-  <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyB7O_dNhrBSXeEQdEkzFtlB9VA_j0VezRM",
-      authDomain: "swinggo-webapp.firebaseapp.com",
-      databaseURL: "https://swinggo-webapp.firebaseio.com",
-      projectId: "swinggo-webapp",
-      storageBucket: "swinggo-webapp.appspot.com",
-      messagingSenderId: "126480075850"
-    };
-    firebase.initializeApp(config);
-  </script>
 </body>
 </html>

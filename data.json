@@ -1,12 +1,13 @@
 {
   "user": 
     {
-     "name": "user0",
-     "email": "test@ucsd.edu",
-     "pw:": "1234",
-     "dominanthand": "right",
-     "handicap": "",
-     "swing_journal":[
+      "picture": "",
+      "name": "user0",
+      "email": "test@ucsd.edu",
+      "pw:": "1234",
+      "dominanthand": "right",
+      "handicap": "",
+      "swing_journal":[
         {
           "currentSession": {
             "date": "",

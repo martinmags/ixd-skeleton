@@ -26,14 +26,14 @@
   <div class="modal-dialog text-center">
     <div class="col-sm-8 main-section">
       <div class="modal-content" id="appuse">
-        <h2>Welcome {{name}}!</h2>
+        <text id="welcometext">Welcome {{name}}!</text>
       </div>
-      <div class="modal-content">
-        <h3>I'm Coach Ella. I'll be your Virtual Coach.</h3>
-        <h6>I have years of golf experience, but none with you.</h6>
-        <h6>Let's do a few golf sessions, so I can understand you a bit more.</h6>
+      <div class="modal-content" id="ella">
+        I'm Coach Ella. I'll be your Virtual Coach.
+        I have years of golf experience, but none with you.
+        Let's do a few golf sessions, so I can understand you a bit more.
         <script type="text/javascript">
-          responsiveVoice.speak("I'm Coach Ace. Let's do a few golf sessions, so I can understand you a bit more.");
+          responsiveVoice.speak("Welcome {{name}}. I'm Coach Ella. Let's do a few golf sessions, so I can understand you a bit more.");
         </script>  
       </div>
       <form class="btn" method="get" action="home">

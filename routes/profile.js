@@ -6,6 +6,6 @@ exports.view = function(req, res){
 };
 
 exports.viewAlt = function(req, res){
-  res.render('profile', data);
+  res.render('profileAlt', data);
   console.log(data);
 };

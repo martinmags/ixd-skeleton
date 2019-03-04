@@ -10,7 +10,7 @@
   <script src="js/bootstrap/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">  
-  <link rel="stylesheet" href="css/profilestyles.css">
+  <link rel="stylesheet" href="css/profileAltstyles.css">
   <!-- Font type -->
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
   {{> facebook}}
@@ -31,6 +31,8 @@
 
 <body>
   <div class="screen_container">
+    <!-- Profile Button and Logo ------------------->
+    <!-- Include a first-time user message overlay-->
     <div class="top_container"> 
       <a class="thumbnailtop" href="home">
         <img id="backarrow" src="images/backarrow.png">
@@ -38,10 +40,9 @@
       <header class="title">
         <text>Profile</text>
       </header>
-      <form class="editBtn" method="get" action="editprofile">
-        <button id="edit" type="submit">Edit</button> 
-      </form> 
-
+      <div class="logoutbtn">
+        <a href="/"  id="logout" type="button" onclick="FB.logout(function(response){});">LogOut</a>
+      </div>
     </div>
 
     <div class="content_container">
@@ -68,18 +69,10 @@
           {{/if}}
         </div>        
       </div>
-      <div class="info">
-      </div>
-    </div>
-
-    <div class="bottom_container">
-      <div class="bottom_buttons"> 
-        <a href="/" id="review" type="button" onclick="FB.logout(function(response){});">Log Out</a> 
-        <form method="get" action="/">
-          <button id="review" type="submit">Deactivate Account</button> 
-        </form>      
-      </div>
-    </div>
+      <form class="editBtn" method="get" action="editprofile">
+          <button id="edit" type="submit">Edit</button> 
+      </form> 
+    </div>    
   </div>
 </body>
 </html>

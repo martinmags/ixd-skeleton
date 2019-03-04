@@ -54,7 +54,7 @@ app.get('/welcome', welcome.view);
 app.get('/updatedProfile', updated.view);
 
 app.get('/profile', profile.view);
-app.get('/viewAlt', profile.viewAlt);
+app.get('/profileAlt', profile.viewAlt);
 
 app.get('/help', help.view);
 app.get('/editprofile', editprofile.view);

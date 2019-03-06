@@ -38,5 +38,6 @@ function changeUser(response){
   };
 
   localStorage.setItem( 'user', JSON.stringify(newUser));
+  location = 'home';
   console.log(localStorage);
 }

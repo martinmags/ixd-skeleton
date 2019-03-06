@@ -9,10 +9,16 @@
 
     
     FB.AppEvents.logPageView();
-    FB.Event.subscribe('auth.login', function(){
-        window.location = '/home';
-      });
+    FB.getLoginStatus(handleSessionResponse);
   };
+  
+  function handleSessionResponse(response){
+    if (!response.session){
+      location = "/";
+      return;
+    }
+    FB.logout(handleSessionResponse);
+  }
   
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];

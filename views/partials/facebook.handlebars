@@ -9,7 +9,9 @@
 
     
     FB.AppEvents.logPageView();
-    
+    FB.Event.subscribe('auth.login', function(){
+        window.location = '/home';
+      });
   };
   
   (function(d, s, id){

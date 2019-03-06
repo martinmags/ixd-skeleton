@@ -10,8 +10,9 @@ function initializePage(){
   $(".logoutBtn").click(clickLogoutBtn);
 }
 
-function clickLogoutBtn{
+function clickLogoutBtn(e){
   e.preventDefault();
+  console.log('clicked');
   ga('create', 'UA-135604176-1', 'auto');
   ga('send', 'event', 'logout', 'click');
 }

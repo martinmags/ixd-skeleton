@@ -7,4 +7,11 @@ $(document).ready(function() {
 
 function initializePage(){
   console.log("Javascript connected!");
+  $(".logoutBtn").click(clickLogoutBtn);
+}
+
+function clickLogoutBtn{
+  e.preventDefault();
+  ga('create', 'UA-135604176-1', 'auto');
+  ga('send', 'event', 'logout', 'click');
 }

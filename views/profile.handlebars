@@ -22,6 +22,7 @@
   {{> styles}}
   {{> facebook}}
   {{> googleAnalytics}}
+  <script src="/js/swingGo.js"></script>
   <link rel="stylesheet" href="css/profilestyles.css">
 </head>
 
@@ -34,8 +35,8 @@
       <header class="title">
         <text>Profile</text>
       </header>
-      <form class="editBtn" method="get" action="editprofile">
-        <button class="btn" type="submit">Edit</button> 
+      <form class="topBtn" method="get" action="editprofile">
+        <button class="editBtn" type="submit">Edit</button> 
       </form> 
 
     </div>
@@ -70,7 +71,7 @@
 
     <div class="bottom_container">
       <div class="bottom_buttons"> 
-        <a href="/" class="btn" type="button" onclick="FB.logout(function(response){}); localStorage.clear();">Log Out
+        <a href="/" class="logoutBtn" type="button" onclick="FB.logout(function(response){}); localStorage.clear();">Log Out
         </a>      
       </div>
     </div>

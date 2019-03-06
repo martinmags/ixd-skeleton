@@ -1,32 +1,18 @@
 <!doctype html>
-
 <html>
 
 <head>
   <title>SwingGo - Learn from a Virtual Coach</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <!-- Load TensorFlow.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3"></script>
-  <!-- Load Posenet -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@0.2.3"></script>
-  <!-- Load jerryrigging -->
-  <script src="js/camera/camera.js"></script>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <!-- Styling -->
+  {{> meta}}
+  {{> features}}
+  {{> styles}}
   <link rel="stylesheet" href="css/homestyles.css">
-  <!-- Responsive Voice API -->
-  <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 </head>
 
 <body onload='startVideo();'>
   <div class="screen_container">
     <!-- Profile Button; Logo; Help ------------------->
-    <!-- Include a first-time user message overlay-->
-    <div class="top_container"> 
+    <div class="top_container">
       <a class="profileBtn" href="profile">
         <img id="profileicon" src="images/profileIcon.png">
       </a>
@@ -44,5 +30,6 @@
       <video id="camera" autoplay></video>
       <canvas id="canvas"></canvas>
     </div>
+  </div>
 </body>
 </html>

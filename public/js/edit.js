@@ -1,7 +1,8 @@
-var data = require("../data.json");
+var data = require("../../data.json");
 
 exports.editUser = function(req,res){
   var name = req.query.name;
+  var pic = "../images/profileIcon.png";
   var email = req.query.email;
   var password = req.query.password;
   var dominanthand = req.query.dominanthand;
@@ -12,6 +13,7 @@ exports.editUser = function(req,res){
 // Add detail to instantiated newUser
   var newUser = {
     "name": name,
+    "pic": pic,
     "email": email,
     "password": password,
     "dominanthand": dominanthand,
@@ -19,6 +21,7 @@ exports.editUser = function(req,res){
   };
 
   data.user = newUser;
-  res.render('updatedProfile', newUser); // pass newUser to home
+  res.render('welcome', newUser); // pass newUser to home
   console.log(data);
 };
+

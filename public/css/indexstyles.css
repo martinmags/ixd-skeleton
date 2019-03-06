@@ -78,17 +78,8 @@ a{
   text-decoration: none;
 }
 
-#forgot{
-  margin-bottom: 1%;
-}
-
 #new{
   padding: 0;
   margin-bottom: -5%;
   font-size: 1.0em;
-}
-
-.users{
-  padding-top: 5px;
-  background-color: black;
 }

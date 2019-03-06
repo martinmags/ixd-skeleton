@@ -1,32 +1,13 @@
 <!doctype html>
-
 <html>
 
 <head>
-  <title>SwingGo - Learn from a Virtual Coach</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="js/bootstrap/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">  
-  <link rel="stylesheet" href="css/profilestyles.css">
-  <!-- Font type -->
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
+  <title>SwingGo - Profile</title>
+  {{> meta}}
+  {{> styles}}
   {{> facebook}}
-  <script src="/js/facebook.js"></script>
-
-  <!-- Google Analytics -->
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-135604176-1', 'auto');
-  ga('send', 'pageview');
-  </script>
-  <!-- End Google Analytics -->
+  {{> googleAnalytics}}
+  <link rel="stylesheet" href="css/profilestyles.css">
 </head>
 
 <body>
@@ -39,47 +20,55 @@
         <text>Profile</text>
       </header>
       <form class="editBtn" method="get" action="editprofile">
-        <button id="edit" type="submit">Edit</button> 
+        <button class="btn" type="submit">Edit</button> 
       </form> 
 
     </div>
 
     <div class="content_container">
-      <div class="welcome">
-        <div class="user">
-          <!-- FB Login doesn't correctly parse information -->
-          <div id="facebookPhoto" class="photo">
-            <img id="photo" class='img-responsive' src="images/profileIcon.png"><br>
-          </div>
-          <text>Name:</text>
-          <text id="name">{{user.name}}</text><br>
-          <text>Email:</text>
-          <text>{{user.email}}</text><br>
-          <text>Password:</text>
-          <text>******</text><br>
-          <text>Dominant Hand:</text>
-          <text>{{user.dominanthand}}</text><br>
-          {{#if user.handicap}}
-            <text>Average Handicap:</text>
-            <text>{{user.handicap}}</text>
-          {{else}}
-            <text>Average Handicap:</text>
-            <text>Not Available</text>
-          {{/if}}
-        </div>        
-      </div>
-      <div class="info">
-      </div>
+      <div class="user">
+        <!-- Photo -->       
+        {{#if user.pic}}
+        <img id="photo" class='img-responsive' src="images/profileIcon.png"><br>
+        {{else}}
+        <img src="" id="fbpic"/><br>
+        {{/if}}
+        <!-- Name -->
+        <br><text>Name: </text>
+        <text id="name">{{user.name}}</text><br>
+        <!-- Email -->
+        <text>Email: </text>
+        <text id="email">Connected to Facebook</text><br>
+        <!-- Dominant Hand -->
+        <text>Dominant Hand:</text>
+        <text>{{user.dominanthand}}</text><br>
+        <!-- Average Handicap -->
+        {{#if user.handicap}}
+          <text>Average Handicap:</text>
+          <text>{{user.handicap}}</text>
+        {{else}}
+          <text>Average Handicap:</text>
+          <text>Not Available</text>
+        {{/if}}
+      </div>        
     </div>
 
     <div class="bottom_container">
       <div class="bottom_buttons"> 
-        <a href="/" id="review" type="button" onclick="FB.logout(function(response){});">Log Out</a> 
-        <form method="get" action="/">
-          <button id="review" type="submit">Deactivate Account</button> 
-        </form>      
+        <a href="/" class="btn" type="button" onclick="FB.logout(function(response){}); localStorage.clear();">Log Out
+        </a>      
       </div>
     </div>
   </div>
+
+<!-- Load Profile Picture and Name-->
+  <script>
+    console.log(localStorage);
+    var data = JSON.parse(localStorage.getItem('user'));
+    document.getElementById('fbpic').src = data.pic;
+    const output = document.getElementById("name");
+    output.innerHTML = data.name;
+  </script>
+
 </body>
 </html>

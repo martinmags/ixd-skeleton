@@ -1,11 +1,11 @@
 {
   "user": 
     {
-      "picture": "",
       "name": "user0",
-      "email": "test@ucsd.edu",
-      "pw:": "1234",
-      "dominanthand": "right",
+      "email": "",
+      "pw": "",
+      "pic": "",
+      "dominanthand": "Not Assigned",
       "handicap": "",
       "swing_journal":[
         {

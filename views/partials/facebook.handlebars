@@ -7,10 +7,9 @@
       version    : 'v3.2'
     });
 
-    //FB.AppEvents.logPageView();
-    FB.Event.subscribe('auth.login', function(){
-      window.location = '/home';
-    });
+    
+    FB.AppEvents.logPageView();
+    
   };
   
   (function(d, s, id){
@@ -21,3 +20,5 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+
+<script src="/js/facebook.js"></script>

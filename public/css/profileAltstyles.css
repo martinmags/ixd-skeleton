@@ -1,5 +1,6 @@
 body{
   color: #4F5B6B;
+  font-family: "Fanwood Text" ;
 }
 /*************************************/
 /* Flexbox wrapper for entire screen */
@@ -33,78 +34,79 @@ body{
   max-height: 100%;
 }
 
+#logout{
+  min-height: 30px;
+  min-width: 50px;
+  border: none;
+  background-color: #DDD9C5;
+  border: 3px solid #BFBCAA;
+  align-self: center;
+
+}
 .title{
   font-weight: bolder;
   color: white;
   align-self: center;
-  font-size:2em;
+  font-size:2.5em;
 }
-#photo{
-  margin-left:auto;
-  margin-right:auto;
-}
+
 .editBtn{
   align-self: center;
   justify-content: center;
   margin: 0px;
 }
 
-#edit{
-  align-self: center;
+.user{
+  font-size:1.5em;
+  font-weight: bold;
+  margin: 10px;
+  align-content: center;
   justify-content: center;
-  background-color: #7F7171;
-  border: 5px solid #555555;
-  border-radius: 12px;
-  color: white;
 }
 
-.user{
-  font-size:1.2em;
-  font-family: "Fanwood Text" ;
-}
-/* Flexbox sub-wrapper for entire bottom portion of screen */
+/* Flexbox sub-wrapper for entire body of screen */
 .content_container{
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   background-color: #DDD9C5;
   height: 90vh;
 }
-
-.welcome{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px;
+.image{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .info{
+  margin-left: 10%; 
+}
+
+.button{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+}
+#fbpic{
+  justify-content: center;
 }
 
-.logoutBtn{
-  height: 50px;
-  width: 50px;
-  border: none;
-  background-color: #90A686;
-  align-self: center;
+#edit{
+  background-color: #90A686;  
+  border: 3px solid #778A6F;
+  color: #DDD9C5;
+  font-size: 1.5em;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-#logout{
+.btn{
+  margin: 0px;
   align-self: center;
   justify-content: center;
-  background-color: #7F7171;
-  border: 5px solid #555555;
+  padding: 5px;
   border-radius: 12px;
-  color: white;
-}
-.user{
-  font-size:1.2em;
-  font-family: "Fanwood Text" ;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.welcome{
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px;
-}

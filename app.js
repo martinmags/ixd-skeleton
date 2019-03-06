@@ -2,12 +2,12 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
+// routes
 var index = require('./routes/index');
 var home = require('./routes/home');
 var createacc = require('./routes/createacc');
@@ -16,9 +16,13 @@ var updated = require('./routes/updatedProfile');
 var profile = require('./routes/profile');
 var profileAlt = require('./routes/profile');
 var editprofile = require('./routes/editprofile');
-var edit = require('./routes/edit');
 var help = require('./routes/help');
-var user = require('./routes/user');
+
+// js functions (written as routes)
+var edit = require('./public/js/edit');
+var edituser = require('./public/js/edituser');
+
+
 // TODO: var accountsettings = require()
 // Example route
 // var user = require('./routes/user');
@@ -52,15 +56,15 @@ app.get('/home', home.view);
 app.get('/createacc', createacc.view);
 app.get('/welcome', welcome.view);
 app.get('/updatedProfile', updated.view);
-
-app.get('/profile', profile.view);
-app.get('/profileAlt', profile.viewAlt);
-
 app.get('/help', help.view);
 app.get('/editprofile', editprofile.view);
 
+// For google analytics analysis
+app.get('/profile', profile.view);
+app.get('/profileAlt', profile.viewAlt);
+
 // Functions
-app.get('/user', user.editUser);
+app.get('/edituser', edituser.editUser);
 app.get('/edit', edit.editUser);
 
 

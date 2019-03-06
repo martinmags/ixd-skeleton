@@ -15,7 +15,6 @@ function statusChangeCallback(response) {
     // Logged into your app and Facebook.
         console.log('Successfully logged in with Facebook');
         FB.api('/me?fields=name,first_name,picture.width(150)', changeUser);
-
   }
   else {
     console.log('Not authenticated');
@@ -23,8 +22,21 @@ function statusChangeCallback(response) {
 }
 
 function changeUser(response){
-  console.log(response);
-  $('p.fb.login').hide();
-  $('#photo').attr("src", response.picture.data.url);
-  $('#name').text(response.name);
+  var name = response.name;
+  var pic = response.picture.data.url;
+  var dominanthand = "";
+  var handicap = "";
+  var swing_journal = [];
+
+  // Add detail to instantiated newUser
+  var newUser = {
+    "name": name,
+    "pic": pic,
+    "dominanthand": dominanthand,
+    "handicap": handicap,
+    "swing_journal": swing_journal
+  };
+
+  localStorage.setItem( 'user', JSON.stringify(newUser));
+  console.log(localStorage);
 }

@@ -1,20 +1,12 @@
 <!doctype html>
-
 <html>
 
 <head>
-  <title>SwingGo - Learn from a Virtual Coach</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="js/bootstrap/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">  
-  <link rel="stylesheet" href="css/updatedprofilestyles.css">
-  <!-- Font type -->
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Fanwood+Text" />
+  <title>SwingGo - Updated Profile</title>
+  {{> meta}}
+  {{> styles}} 
   {{> facebook}}
-  <script src="/js/facebook.js"></script>
+  <link rel="stylesheet" href="css/updatedprofilestyles.css">  
 </head>
 
 <body>
@@ -28,13 +20,9 @@
           <form class="btn" method="get" action="profile">
             <button type="submit">Continue</button> 
           </form> 
-        </div>        
-      </div>
-      <div class="info">
-      </div>
-    </div>
-
-    
+        </div>
+      </div> <!-- end of welcome -->
+    </div> <!-- end of content_container -->
   </div>
 </body>
 </html>

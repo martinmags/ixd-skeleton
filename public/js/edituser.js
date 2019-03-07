@@ -17,7 +17,7 @@ exports.editUser = function(req,res){
     "email": email,
     "password": password,
     "dominanthand": dominanthand,
-    "handicap": handicap,
+    "handicap": Math.floor(30 * Math.random()),
   };
 
   data.user = newUser;

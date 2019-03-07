@@ -2,13 +2,13 @@ let video;
 let canvas;
 let ctx;
 let network;
-var address = false;
-var top = false;
-var impact = false;
-var finishSwing = false;
+var state = 0;
+var textCounter = 0;
+var textLines = [];
+let lastPose = null;
 
-function startVideo() {
-    network = posenet.load();
+async function startVideo() {
+    network = await posenet.load();
     video = document.getElementById("camera");
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
@@ -23,24 +23,43 @@ function startVideo() {
     }
 
     renderFrame();
-    window.setInterval(renderFrame, 1);
+    window.setInterval(renderFrame, 50);
     
 
 }
 
-function renderFrame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    var imageScaleFactor = 0.5;
-    var outputStride = 16;
-    var flipHorizontal = false;
+async function renderFrame() {
+  var imageScaleFactor = 0.5;
+  var outputStride = 16;
+  var flipHorizontal = false;
+  var maxPoseDetections = 3;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  if (lastPose !== null) {
+    drawSkeleton(lastPose, .01);
+  }
+  renderText();
+  var multiPose = await network.estimateMultiplePoses(canvas, imageScaleFactor, flipHorizontal, outputStride, maxPoseDetections);
+  if (multiPose.length > 0) {
+    lastPose = multiPose[0];
+    
+  } else {
+    lastPose = null;
+  }
+}
 
-    network.then(function(net){
-      return net.estimateSinglePose(canvas, imageScaleFactor, flipHorizontal, outputStride)
-    }).then(function(pose){
-      // console.log(pose);
-      drawSkeleton(pose, .1);
-    }).catch(console.log);
+function renderText() {
+  if (textCounter > 0) {
+      ctx.font = '30px serif';
+      ctx.fillStyle = "#FF0000";
+      for (let i = 0; i < textLines.length; i++) {
+        let t = ctx.measureText(textLines[i]);
+        let x = (canvas.width - t.width) / 2;
+        let y = (canvas.height - textLines.length * 48 * 1.3) / 2 + i * 1.3 * 48;
+        ctx.fillText(textLines[i], x, y);
+      }
+      textCounter --;
+    }
 }
 
 const connectedPartNames = [ ['leftHip', 'leftShoulder'], ['leftElbow', 'leftShoulder'], ['leftElbow', 'leftWrist'], ['leftHip', 'leftKnee'], ['leftKnee', 'leftAnkle'], ['rightHip', 'rightShoulder'], ['rightElbow', 'rightShoulder'], ['rightElbow', 'rightWrist'], ['rightHip', 'rightKnee'], ['rightKnee', 'rightAnkle'], ['leftShoulder', 'rightShoulder'], ['leftHip', 'rightHip'] ];
@@ -96,58 +115,58 @@ function drawSkeleton(keypoints, minConfidence, scale = 1) {
         toTuple(keypoints[0].position), toTuple(keypoints[1].position), "#00FF00",
         scale, ctx);
   });
-
 }
 
 function didAddressBall(keypoints) {
   var wristDistance = (((keypoints.keypoints[9]["position"].x - keypoints.keypoints[10]["position"].x + keypoints.keypoints[9]["position"].y - keypoints.keypoints[10]["position"].y)/2));
   var wrists = ((keypoints.keypoints[9]["position"].y + keypoints.keypoints[10]["position"].y)/2);
-
+  var waist = keypoints.keypoints[11]["position"].y;
+  var shoulders = keypoints.keypoints[6]["position"].y;
   // Check that the keypoints confidence levels are high enough
-  if (keypoints.keypoints[9]["score"] > .8 && 
-      keypoints.keypoints[10]["score"] > .8 &&
-      wristDistance < 30)  {
+  if (keypoints.keypoints[9]["score"] > .5 && 
+      keypoints.keypoints[10]["score"] > .5 &&
+      keypoints.keypoints[11]["score"] > .5 && 
+      keypoints.keypoints[6]["score"] > .5){
+    if (wrists > waist && wristDistance < 30 && state == 0)  {
       console.log("Golfer has addressed ball");
-      address = true;
-    if (wrists < 200 && address == true) {
+      state++;
+    } else if (wrists < shoulders && state == 1) {
       console.log("Golfer reached top of backswing");
-        address = false;
-      top = true;
+      state++;
     }
-    if (wrists > 300 && top == true) {
+    else if (wrists > waist && state == 2) {
       console.log("Golfer in impact position");
-        top = false;
-      impact = true;
+      state++;
     } 
-    if (wrists < 200 && impact == true) {
+    else if (wrists < shoulders && state == 3) {
       console.log("Golfer has finished golf swing");
-      impact = false;
-      finishSwing = true;
+      state++;
     }
-    if (finishSwing == true) {
+    else if (state == 4) {
         angleMeasurement(keypoints);
         voiceDidSpeak();
+        state = 0;
     }
   }
 }
 
 function voiceDidSpeak() {
-      let hips = "Your form looks good turn your hips more in your downswing";
-      let straightArms = "just remember your front arm and back arm should be as straight as possible at impact";
-      let frontArm = "put your front arm perfectly in line with your club shaft at impact.";
-      let shoulders = "Your back shoulder should be dropped a bit below the height of your front shoulder";
-      let hooking = "This will allow your hands to remain ahead of your club head and your back foot to lift off the ground.";
-      var i;
-      var body = [hips, straightArms,frontArm,shoulders,hooking];
-      var text = ""
-      for (i = 0; i < body.length; i++) {
-          text = String.valueOf(body[i]);
-          responsiveVoice.speak(text);
-      }
+      let hips = ["Your form looks", "good turn your", "hips more in", "your downswing"];
+      let straightArms = ["Remember your front arm", "and back arm should be", "as straight as possible at impact"];
+      let frontArm = ["Put your front arm", "perfectly in line", "with your club shaft at impact."];
+      let shoulders = ["Your back shoulder" ,"should be dropped a bit" ,"below the height of your front shoulder"];
+      let hooking = ["At Impact your hands should", "remain AHEAD of", "your club head."];
+    
+      var body = [hips, straightArms, frontArm, shoulders, hooking];
+      var i = Math.floor(Math.random() * body.length);
+      textLines = body[i];
+      textCounter = 200; 
+      responsiveVoice.speak(textLines.join(" "));
 }
 function angleMeasurement(keypoints) {
     var firstAngle = Math.atan2((keypoints.keypoints[5]["position"].y - keypoints.keypoints[11]["position"].y),(keypoints.keypoints[5]["position"].x - keypoints.keypoints[11]["position"].x));
     var secondAngle = Math.atan2((keypoints.keypoints[6]["position"].y - keypoints.keypoints[11]["position"].y),(keypoints.keypoints[6]["position"].x - keypoints.keypoints[11]["position"].x));
+    console.log(firstAngle,secondAngle);
     var angle = (firstAngle - secondAngle);
     console.log(angle);
 }

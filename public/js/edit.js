@@ -19,9 +19,8 @@ exports.editUser = function(req,res){
     "dominanthand": dominanthand,
     "handicap": handicap,
   };
-
+  localStorage.setItem('user', newUser);
   data.user = newUser;
   res.render('welcome', newUser); // pass newUser to home
   console.log(data);
 };
-

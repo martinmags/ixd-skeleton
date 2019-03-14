@@ -2,6 +2,11 @@ body{
   color: #4F5B6B;
   font-family: "Fanwood Text" ;
 }
+
+a{
+  color: #90A686;
+  text-decoration: none;
+}
 /*************************************/
 /* Flexbox wrapper for entire screen */
 .screen_container{

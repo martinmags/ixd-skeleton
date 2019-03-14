@@ -6,7 +6,7 @@ var state = 0;
 var textCounter = 0;
 var textLines = [];
 let lastPose = null;
-var isOn = false;
+var isOn = false; // toggle posestimation on/off
 
 async function startVideo() {
     network = await posenet.load();

@@ -21,12 +21,14 @@
   display: flex;
   justify-content: center;
   height: 90vh;
+  position: relative;
 }
 
 #canvas{
   -o-object-fit: cover;
   object-fit: cover;
   overflow: hidden;
+  z-index: 1;
 }
 
 #camera{
@@ -60,4 +62,25 @@
   color: white;
   align-self: center;
   font-size:2em;
+}
+
+#start{
+  height: 70px;
+  width: 70px;
+  background-color: white;
+  position: absolute;
+  top:85%;
+  z-index:2;
+
+  border-width: 10px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: gray;
+}
+
+#help{
+  position: absolute;
+  top:80%;
+  color: white;
+  z-index:2;
 }

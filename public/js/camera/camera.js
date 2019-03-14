@@ -6,6 +6,7 @@ var state = 0;
 var textCounter = 0;
 var textLines = [];
 let lastPose = null;
+var isOn = false;
 
 async function startVideo() {
     network = await posenet.load();
@@ -14,6 +15,11 @@ async function startVideo() {
     ctx = canvas.getContext("2d");
     canvas.setAttribute("width", 600);
     canvas.setAttribute("height", 600);
+
+    // Event listener that turns on/off posestimation frame renderer.
+    document.getElementById("start").addEventListener("click", function(){
+      isOn = !isOn;
+    });
 
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -24,27 +30,27 @@ async function startVideo() {
 
     renderFrame();
     window.setInterval(renderFrame, 50);
-    
-
 }
 
 async function renderFrame() {
-  var imageScaleFactor = 0.5;
-  var outputStride = 16;
-  var flipHorizontal = false;
-  var maxPoseDetections = 3;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  if (lastPose !== null) {
-    drawSkeleton(lastPose, .01);
-  }
-  renderText();
-  var multiPose = await network.estimateMultiplePoses(canvas, imageScaleFactor, flipHorizontal, outputStride, maxPoseDetections);
-  if (multiPose.length > 0) {
-    lastPose = multiPose[0];
-    
-  } else {
-    lastPose = null;
+    var imageScaleFactor = 0.5;
+    var outputStride = 16;
+    var flipHorizontal = false;
+    var maxPoseDetections = 3;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  if (isOn){
+    if (lastPose !== null) {
+      drawSkeleton(lastPose, .01);
+    }
+    renderText();
+    var multiPose = await network.estimateMultiplePoses(canvas, imageScaleFactor, flipHorizontal, outputStride, maxPoseDetections);
+    if (multiPose.length > 0) {
+      lastPose = multiPose[0];
+    } else {
+      lastPose = null;
+    }
   }
 }
 

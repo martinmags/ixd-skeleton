@@ -1,3 +1,7 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
 /*************************************/
 /* Flexbox wrapper for entire screen */
 .screen_container{
@@ -29,6 +33,11 @@
   object-fit: cover;
   overflow: hidden;
   z-index: 1;
+
+  /* Reverse orientation of camera */
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 #camera{
@@ -69,9 +78,8 @@
   width: 70px;
   background-color: white;
   position: absolute;
-  top:85%;
+  top:82%;
   z-index:2;
-
   border-width: 10px;
   border-radius: 50%;
   border-style: solid;
@@ -80,7 +88,9 @@
 
 #help{
   position: absolute;
-  top:80%;
+  top: 94%;
   color: white;
   z-index:2;
+  background-color: gray;
+  opacity: 0.7;
 }

@@ -57,7 +57,7 @@ async function renderFrame() {
 function renderText() {
   if (textCounter > 0) {
       ctx.font = '30px serif';
-      ctx.fillStyle = "#FF0000";
+      ctx.fillStyle = "#000000";
       for (let i = 0; i < textLines.length; i++) {
         let t = ctx.measureText(textLines[i]);
         let x = (canvas.width - t.width) / 2;

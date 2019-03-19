@@ -35,9 +35,9 @@ body{
   z-index: 1;
 
   /* Reverse orientation of camera */
-  -o-transform: scaleX(-1);
+/*  -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+  transform: scaleX(-1);*/
 }
 
 #camera{

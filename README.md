@@ -74,7 +74,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Broderick Higby** - *Initial work* - 
+* **Broderick Higby** - *Project Manager* and *Computer-Vision Specialist*
+* **Martin Magsombol** - *UX-Architect* and *Front-end Developer*
+* **Madeling Ng** - *UX Researcher* and *UI/UX Designer*
 
 
 
